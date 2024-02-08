@@ -1,0 +1,53 @@
+
+@font-face {
+  font-family: 'Roboto', sans-serif!important;
+  src: url('./assets/fonts/roboto/Roboto-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif!important;
+    background: #fafafa!important;
+}
+
+h1 {
+    font-size: 34pt!important;
+}
+
+h2 {
+    font-size: 26pt!important;
+}
+
+h3 {
+    font-size: 18pt!important;
+}
+
+h4 {
+  font-size: 12pt!important;
+}
+
+h1, h2 ,h3, h4, h5, h6,
+p, label, input, textarea, span, div, button {
+  font-family: 'Roboto', sans-serif!important;
+}
+@import url(src/assets/css/animate.min.css);
+@import url(src/assets/css/normalize.css);
+@import url(src/assets/css/icomoon.css);
+@import url(src/assets/css/font-awesome.min.css);
+@import url(src/assets/css/meanmenu.css);
+@import url(src/assets/css/owl.carousel.min.css);
+@import url(src/assets/css/slick.css);
+@import url(src/assets/css/jquery.fancybox.min.css);
+@import url(src/assets/css/jquery-ui.css);
+@import url(src/assets/css/nice-select.css);
+
+
+app-header {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
