@@ -1,0 +1,631 @@
+{
+  "appName": "Siaton Pub-Market Rental",
+  "reservationConfig": {
+    "maxCancellation": "3",
+    "daysCancellationLimitReset": "5",
+    "timeSlotHours": {
+      "start": "08:00",
+      "end": "17:00"
+    },
+    "timeSlotNotAvailableHours": [
+      "12:00"
+    ],
+    "dayOfWeekNotAvailable": [
+      "Sunday",
+      "Wednesday",
+      "Saturday"
+    ]
+  },
+  "tableColumns": {
+    "users": [
+      {
+        "name": "fullName",
+        "label": "Name",
+        "apiNotation": "fullName",
+        "sticky": true,
+        "type": "string",
+        "style": {
+          "width": "100px",
+          "left": "0px"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Full name"
+        },
+        "urlPropertyName": "url"
+      },
+      {
+        "name": "userProfilePic",
+        "label": "Profile Picture",
+        "type": "image",
+        "style": {
+          "width": "100px"
+        }
+      },
+      {
+        "name": "userName",
+        "label": "Username",
+        "apiNotation": "user.userName",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Username"
+        }
+      },
+      {
+        "name": "mobileNumber",
+        "label": "Mobile number",
+        "apiNotation": "mobileNumber",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Mobile number"
+        }
+      },
+      {
+        "name": "access",
+        "label": "User group",
+        "apiNotation": "access.name",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "User group"
+        }
+      },
+      {
+        "name": "userType",
+        "label": "Type",
+        "apiNotation": "userType",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Type"
+        }
+      }
+    ],
+    "access": [
+      {
+        "name": "accessCode",
+        "label": "User group #",
+        "sticky": true,
+        "apiNotation": "accessCode",
+        "type": "string",
+        "style": {
+          "width": "100px",
+          "left": "0px"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "User group #"
+        },
+        "urlPropertyName": "url"
+      },
+      {
+        "name": "name",
+        "label": "User group name",
+        "apiNotation": "name",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "User group name"
+        }
+      }
+    ],
+    "stallClassification": [
+      {
+        "sticky": true,
+        "name": "stallClassificationsCode",
+        "label": "Stall Classifications #",
+        "apiNotation": "stallClassificationsCode",
+        "type": "string",
+        "style": {
+          "width": "100px",
+          "left": "0px"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Stall Classifications #"
+        },
+        "urlPropertyName": "url"
+      },
+      {
+        "name": "thumbnail",
+        "label": "Thumbnail",
+        "apiNotation": "thumbnailFile.url",
+        "type": "image",
+        "style": {
+          "width": "100px"
+        }
+      },
+      {
+        "name": "name",
+        "label": "Name",
+        "apiNotation": "name",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Name"
+        }
+      },
+      {
+        "name": "location",
+        "label": "Location",
+        "apiNotation": "location",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Location"
+        }
+      }
+    ],
+    "stall": [
+      {
+        "sticky": true,
+        "name": "stallCode",
+        "label": "Stall code",
+        "apiNotation": "stallCode",
+        "type": "string",
+        "style": {
+          "width": "100px",
+          "left": "0px"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Stall code"
+        },
+        "urlPropertyName": "url"
+      },
+      {
+        "name": "name",
+        "label": "Name",
+        "apiNotation": "name",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Name"
+        }
+      },
+      {
+        "name": "areaName",
+        "label": "Area",
+        "apiNotation": "areaName",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Area"
+        }
+      },
+      {
+        "name": "monthlyRate",
+        "label": "Monthly",
+        "apiNotation": "monthlyRate",
+        "type": "number",
+        "format": {
+          "type": "currency"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Monthly",
+          "type": "number-range"
+        }
+      },
+      {
+        "name": "weeklyRate",
+        "label": "Weekly",
+        "apiNotation": "weeklyRate",
+        "type": "number",
+        "format": {
+          "type": "currency"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Weekly",
+          "type": "number-range"
+        }
+      },
+      {
+        "name": "dailyRate",
+        "label": "Daily",
+        "apiNotation": "dailyRate",
+        "type": "number",
+        "format": {
+          "type": "currency"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Daily",
+          "type": "number-range"
+        }
+      },
+      {
+        "name": "status",
+        "label": "Status",
+        "apiNotation": "status",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Status"
+        }
+      }
+    ],
+    "tenantRentContract": [
+      {
+        "sticky": true,
+        "name": "tenantRentContractCode",
+        "label": "Code #",
+        "apiNotation": "tenantRentContractCode",
+        "type": "string",
+        "style": {
+          "width": "100px",
+          "left": "0px"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Code #"
+        },
+        "urlPropertyName": "url"
+      },
+      {
+        "name": "dateStart",
+        "label": "Lease Start",
+        "apiNotation": "dateStart",
+        "type": "date",
+        "format": {
+          "type": "date-time",
+          "custom": "MMM dd, yyyy"
+        },
+        "filterOptions": {
+          "enable": true,
+          "label": "Lease Start",
+          "type": "date-range"
+        }
+      },
+      {
+        "name": "stall",
+        "label": "Stall",
+        "apiNotation": "stall.name",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Stall"
+        }
+      },
+      {
+        "name": "tenantUser",
+        "label": "Tenant",
+        "apiNotation": "tenantUser.fullName",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Tenant"
+        }
+      },
+      {
+        "name": "assignedCollectorUser",
+        "label": "Collector",
+        "apiNotation": "assignedCollectorUser.fullName",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Collector"
+        }
+      },
+      {
+        "name": "totalRentAmount",
+        "label": "Total",
+        "apiNotation": "totalRentAmount",
+        "type": "number",
+        "format": {
+          "type": "currency"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Total",
+          "type": "number-range"
+        }
+      },
+      {
+        "name": "otherCharges",
+        "label": "Charges",
+        "apiNotation": "otherCharges",
+        "type": "number",
+        "format": {
+          "type": "currency"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Charges",
+          "type": "number-range"
+        }
+      },
+      {
+        "name": "dateCreated",
+        "label": "Contract date",
+        "apiNotation": "dateCreated",
+        "type": "date",
+        "format": {
+          "type": "date-time",
+          "custom": "MMM dd, yyyy"
+        },
+        "filterOptions": {
+          "enable": true,
+          "label": "Contract date",
+          "type": "date-range"
+        }
+      }
+    ],
+    "tenantRentBooking": [
+      {
+        "sticky": true,
+        "name": "tenantRentBookingCode",
+        "label": "Code #",
+        "apiNotation": "tenantRentBookingCode",
+        "type": "string",
+        "style": {
+          "width": "100px",
+          "left": "0px"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Code #"
+        },
+        "urlPropertyName": "url"
+      },
+      {
+        "name": "dateCreated",
+        "label": "Date booked",
+        "apiNotation": "dateCreated",
+        "type": "date",
+        "format": {
+          "type": "date-time",
+          "custom": "MMM dd, yyyy h:mm a"
+        },
+        "filterOptions": {
+          "enable": true,
+          "label": "Date booked",
+          "type": "date-range"
+        }
+      },
+      {
+        "name": "stall",
+        "label": "Stall",
+        "apiNotation": "stall.name",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Stall"
+        }
+      },
+      {
+        "name": "datePreferedStart",
+        "label": "Prefered Start",
+        "apiNotation": "datePreferedStart",
+        "type": "date",
+        "format": {
+          "type": "date-time",
+          "custom": "MMM dd, yyyy h:mm a"
+        },
+        "filterOptions": {
+          "enable": true,
+          "label": "Prefered Start",
+          "type": "date-range"
+        }
+      },
+      {
+        "name": "requestedByUser",
+        "label": "Requested by",
+        "apiNotation": "requestedByUser.fullName",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Requested by"
+        }
+      }
+    ],
+    "billing": [
+      {
+        "sticky": true,
+        "name": "tenantRentContractCode",
+        "label": "Code #",
+        "apiNotation": "tenantRentContractCode",
+        "type": "string",
+        "style": {
+          "width": "100px",
+          "left": "0px"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Code #"
+        },
+        "urlPropertyName": "url"
+      },
+      {
+        "name": "currentDueDate",
+        "label": "Due date ",
+        "apiNotation": "currentDueDate",
+        "type": "date",
+        "style": {
+          "width": "max-content"
+        },
+        "filterOptions": {
+          "enable": false
+        }
+      },
+      {
+        "name": "stall",
+        "label": "Stall",
+        "apiNotation": "stall.name",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Stall"
+        }
+      },
+      {
+        "name": "tenantUser",
+        "label": "Tenant",
+        "apiNotation": "tenantUser.fullName",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Tenant"
+        }
+      },
+      {
+        "name": "assignedCollectorUser",
+        "label": "Collector",
+        "apiNotation": "assignedCollectorUser.fullName",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Collector"
+        }
+      },
+      {
+        "name": "dueAmount",
+        "label": "Due Amount",
+        "apiNotation": "dueAmount",
+        "type": "number",
+        "disableSorting": true,
+        "format": {
+          "type": "currency"
+        }
+      },
+      {
+        "name": "overDueAmount",
+        "label": "Over Due Amount",
+        "apiNotation": "overDueAmount",
+        "type": "number",
+        "disableSorting": true,
+        "format": {
+          "type": "currency"
+        }
+      },
+      {
+        "name": "totalDueAmount",
+        "label": "Total Due Amount",
+        "apiNotation": "totalDueAmount",
+        "type": "number",
+        "disableSorting": true,
+        "format": {
+          "type": "currency"
+        }
+      }
+    ]
+  },
+  "sessionConfig": {
+    "sessionTimeout": "60"
+  },
+  "lookup": {
+    "accessPages": [
+      {
+        "page": "Dashboard",
+        "view": true,
+        "modify": true,
+        "rights": []
+      },
+      {
+        "page": "Billing",
+        "view": false,
+        "modify": false
+      },
+      {
+        "page": "Tenant Rent Contract",
+        "view": false,
+        "modify": false,
+        "rights": ["Status"]
+      },
+      {
+        "page": "Tenant Rent Booking",
+        "view": false,
+        "modify": false,
+        "rights": ["Approval"]
+      },
+      {
+        "page": "Stalls",
+        "view": false,
+        "modify": false,
+        "rights": []
+      },
+      {
+        "page": "Stall Classifications",
+        "view": false,
+        "modify": false,
+        "rights": []
+      },
+      {
+        "page": "Users",
+        "view": false,
+        "modify": false,
+        "rights": []
+      },
+      {
+        "page": "User group",
+        "view": false,
+        "modify": false,
+        "rights": []
+      }
+    ]
+  },
+  "apiEndPoints": {
+    "auth": {
+      "login": "/auth/login/staff",
+      "registerTenant": "/auth/register/tenant"
+    },
+    "user": {
+      "getByCode": "/users/",
+      "createUsers": "/users/",
+      "updateProfile": "/users/updateProfile/",
+      "updateUsers": "/users/",
+      "getUsersByAdvanceSearch": "/users/page/",
+      "resetUserPassword": "/users/",
+      "approveAccessRequest": "/users/"
+    },
+    "access": {
+      "getByAdvanceSearch": "/access/page/",
+      "getByCode": "/access/",
+      "create": "/access/",
+      "update": "/access/",
+      "delete": "/access/"
+    },
+    "stallClassification": {
+      "getByAdvanceSearch": "/stall-classifications/page/",
+      "getByCode": "/stall-classifications/",
+      "create": "/stall-classifications/",
+      "update": "/stall-classifications/",
+      "delete": "/stall-classifications/"
+    },
+    "stall": {
+      "getByAdvanceSearch": "/stalls/page/",
+      "getById": "/stalls/",
+      "getByCode": "/stalls/getByCode/",
+      "create": "/stalls/",
+      "update": "/stalls/",
+      "delete": "/stalls/"
+    },
+    "tenantRentContract": {
+      "getByAdvanceSearch": "/tenant-rent-contract/page/",
+      "getByCode": "/tenant-rent-contract/",
+      "create": "/tenant-rent-contract/",
+      "createFromBooking": "/tenant-rent-contract/createFromBooking",
+      "update": "/tenant-rent-contract/",
+      "updateStatus": "/tenant-rent-contract/updateStatus/"
+    },
+    "tenantRentBooking": {
+      "getByAdvanceSearch": "/tenant-rent-booking/page/",
+      "getByCode": "/tenant-rent-booking/",
+      "create": "/tenant-rent-booking/",
+      "update": "/tenant-rent-booking/",
+      "updateStatus": "/tenant-rent-booking/updateStatus/"
+    },
+    "notifications": {
+      "getByAdvanceSearch": "/notifications/page/",
+      "getUnreadByUser": "/notifications/getUnreadByUser/",
+      "marAsRead": "/notifications/marAsRead/"
+    },
+    "dashboard": {},
+    "message": {
+      "create": "/message/"
+    }
+  }
+}
