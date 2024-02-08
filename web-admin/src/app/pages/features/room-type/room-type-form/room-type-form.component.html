@@ -1,0 +1,53 @@
+
+<div class="inner-content" fxFlex="100">
+  <form
+  [formGroup]="form"
+  fxLayout="row wrap"
+  id="form"
+  [ngClass]="{'readonly' : isReadOnly}">
+  <fieldset fxFlex="100" fxLayout="row wrap" style="row-gap: 16px">
+    <div fxFlex="100" fxLayout="column" fxLayout="row ">
+      <div class="thumbnail-holder">
+        <div class="thumbnail-pic">
+          <label class="label" (click)="onShowImageViewer()">
+            <span class="glyphicon glyphicon-camera"></span>
+            <span>View picture</span>
+          </label>
+          <div class="thumbnail-loader" *ngIf="!pictureSourceLoaded">
+            <mat-spinner></mat-spinner>
+          </div>
+          <img [hidden]="!pictureSourceLoaded" [src]="roomType?.thumbnailFile?.url" (error)="imageErrorHandler($event)" id="thumbnailPicture" width="200" (load)="pictureSourceLoaded = true"/>
+          <button type="button" *ngIf="form.enabled" color="primary" class="thumbnail-pic-controls" (click)="onShowChangeThumbnail()" color="primary" mat-mini-fab aria-label="Change thumbnail picture" matTooltip="Change thumbnail picture">
+            <mat-icon>photo_camera</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <mat-form-field
+      fxFlex="100"
+      fxLayout="column"
+      appearance="outline"
+    >
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        placeholder="Name"
+        formControlName="name"
+      />
+      <mat-error
+        *ngIf="getError('name') !== (null || undefined)"
+        >{{
+          (getError("name") &&
+          getError("name")["required"]
+            ? "Please enter name"
+            : "") ||
+            (getError("name") &&
+            getError("name")["pattern"]
+              ? "Invalid input"
+              : "")
+        }}</mat-error
+      >
+    </mat-form-field>
+  </fieldset>
+  </form>
+</div>

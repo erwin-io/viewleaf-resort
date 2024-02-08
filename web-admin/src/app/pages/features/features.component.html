@@ -1,0 +1,92 @@
+
+<mat-toolbar color="primary" [ngClass]="{ 'side-bar-open' : drawerDefaultOpened}">
+    <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu" *ngIf="!drawerDefaultOpened">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <img id="banner" style="border-radius: 5px;" src="../../../assets/img/banner-square.png">
+    <span id="title">{{title}}</span>
+    <span class="toolbar-item-spacer"></span>
+    <button mat-icon-button matTooltip="Notifications" (click)="notification.toggle();getNotifCount()">
+        <mat-icon *ngIf="unReadNotificationCount > 0; else noBadgeNotifIcon" matBadge="{{
+          (unReadNotificationCount > 99 ? '99+' : unReadNotificationCount)
+        }}" matBadgeColor="warn">notifications</mat-icon>
+        <ng-template #noBadgeNotifIcon>
+          <mat-icon matBadgeColor="warn">notifications</mat-icon>
+        </ng-template>
+    </button>
+    <button class="profile-mat-menu" mat-icon-button matTooltip="My profile" [matMenuTriggerFor]="userAccountMenu">
+        <mat-icon *ngIf="!profileLoaded">account_circle</mat-icon>
+        <img [hidden]="!profileLoaded" style="width: 50px;height: 50px;" (load)="profileLoaded = true" (error)="profileLoaded = false" [src]="profile?.userProfilePic?.file?.url">
+    </button>
+    <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
+        <button mat-menu-item routerLink="/profile/">
+            <mat-icon>person</mat-icon><span>My profile</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="signOut()">
+            <mat-icon>exit_to_app</mat-icon>Logout
+        </button>
+    </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container class="app-container" >
+    <mat-sidenav #sidenav mode="side" className="mat-elevation-z4" [opened]="drawerDefaultOpened" [mode]="!drawerDefaultOpened ? 'over': 'side'" style="position: fixed;">
+        <mat-nav-list>
+            <mat-list-item (mouseup)="sidenav.close()" class="mobile-close-sidenav">
+                <mat-icon>keyboard_backspace</mat-icon>
+            </mat-list-item>
+            <mat-list-item routerLink="dashboard" (mouseup)="!drawerDefaultOpened ? sidenav.close() : false" routerLinkActive="active-link">
+                <mat-icon>dashboard</mat-icon><span>Dashboard</span>
+            </mat-list-item>
+            <mat-list-item routerLink="booking-history" (mouseup)="!drawerDefaultOpened ? sidenav.close() : false" routerLinkActive="active-link">
+                <mat-icon>edit_calendar</mat-icon><span>Booking History</span>
+            </mat-list-item>
+            <!-- <mat-expansion-panel *ngIf="showGroupMenu(['Booking History'])" [@.disabled]="disableGroupAnimation" (afterExpand)="disableGroupAnimation = false" [expanded]="expand('Booking')" [ngClass]="{'mat-expansion-active':expand('Booking') }" [class.mat-elevation-z0]="true" >
+              <mat-expansion-panel-header>
+                  <mat-icon>store</mat-icon><span>Booking</span>
+              </mat-expansion-panel-header>
+              <mat-nav-list>
+                <mat-list-item *ngIf="showMenu('Booking History')" routerLink="booking-history" (mouseup)="!drawerDefaultOpened ? sidenav.close() : false" routerLinkActive="active-link">
+                    <mat-icon>edit_calendar</mat-icon><span>Booking History</span>
+                </mat-list-item>
+              </mat-nav-list>
+            </mat-expansion-panel> -->
+            <mat-expansion-panel *ngIf="showGroupMenu(['Room', 'Room Type'])" [@.disabled]="disableGroupAnimation" (afterExpand)="disableGroupAnimation = false" [expanded]="expand('Configuration')" [ngClass]="{'mat-expansion-active':expand('Configuration') }" [class.mat-elevation-z0]="true" >
+              <mat-expansion-panel-header>
+                  <mat-icon>settings</mat-icon><span>Configuration</span>
+              </mat-expansion-panel-header>
+              <mat-nav-list>
+                <mat-list-item *ngIf="showMenu('Room Type')" routerLink="room-type" (mouseup)="!drawerDefaultOpened ? sidenav.close() : false" routerLinkActive="active-link">
+                    <mat-icon>category</mat-icon><span>Room Type</span>
+                </mat-list-item>
+                <mat-list-item *ngIf="showMenu('Room')" routerLink="room" (mouseup)="!drawerDefaultOpened ? sidenav.close() : false" routerLinkActive="active-link">
+                    <mat-icon>description</mat-icon><span>Room</span>
+                </mat-list-item>
+              </mat-nav-list>
+            </mat-expansion-panel>
+            <mat-expansion-panel *ngIf="showGroupMenu(['User group', 'Users'])" [@.disabled]="disableGroupAnimation" (afterExpand)="disableGroupAnimation = false" [expanded]="expand('User Management')" [ngClass]="{'mat-expansion-active':expand('User Management') }" [class.mat-elevation-z0]="true" >
+              <mat-expansion-panel-header>
+                <mat-icon>supervised_user_circle</mat-icon><span>User Management</span>
+              </mat-expansion-panel-header>
+              <mat-nav-list>
+                <mat-list-item *ngIf="showMenu('User group')" routerLink="user-group" (mouseup)="!drawerDefaultOpened ? sidenav.close() : false" routerLinkActive="active-link">
+                    <mat-icon>lock_open</mat-icon><span>User group</span>
+                </mat-list-item>
+                <mat-list-item *ngIf="showMenu('Users')" routerLink="users" (mouseup)="!drawerDefaultOpened ? sidenav.close() : false" routerLinkActive="active-link">
+                    <mat-icon>account_circle</mat-icon><span>Users</span>
+                </mat-list-item>
+              </mat-nav-list>
+            </mat-expansion-panel>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="page-wrapper">
+            <div class="page-container" [ngClass]="{ 'details-container': details }">
+                <router-outlet (activate)="onActivate($event)">
+                </router-outlet>
+            </div>
+          </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<app-notification-window #notification (readNotif)="getNotifCount()"></app-notification-window>

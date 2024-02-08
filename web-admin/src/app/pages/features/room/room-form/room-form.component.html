@@ -1,0 +1,219 @@
+
+<div class="inner-content" fxLayout="column" style="row-gap: 16px">
+  <form
+  [formGroup]="form"
+  fxLayout="row wrap"
+  id="form"
+  [ngClass]="{'readonly' : isReadOnly}">
+  <fieldset fxFlex="100" fxLayout="row wrap" style="row-gap: 16px">
+    <div fxFlex="100" fxLayout="column" fxLayout="row ">
+      <div class="thumbnail-holder">
+        <div class="thumbnail-pic">
+          <label class="label" (click)="onShowImageViewer()">
+            <span class="glyphicon glyphicon-camera"></span>
+            <span>View picture</span>
+          </label>
+          <div class="thumbnail-loader" *ngIf="!pictureSourceLoaded">
+            <mat-spinner></mat-spinner>
+          </div>
+          <img [hidden]="!pictureSourceLoaded" [src]="room?.thumbnailFile?.url" (error)="imageErrorHandler($event)" id="thumbnailPicture" width="200" (load)="pictureSourceLoaded = true"/>
+          <button type="button" *ngIf="form.enabled" color="primary" class="thumbnail-pic-controls" (click)="onShowChangeThumbnail()" color="primary" mat-mini-fab aria-label="Change thumbnail picture" matTooltip="Change thumbnail picture">
+            <mat-icon>photo_camera</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      fxFlex="100"
+      fxLayout="column"
+      fxLayout.gt-sm="row"
+      style="gap: 16px">
+      <mat-form-field
+        fxFlex="50%"
+        fxLayout="column"
+        appearance="outline">
+        <mat-label>Room number</mat-label>
+        <input
+          matInput
+          placeholder="Room number"
+          formControlName="roomNumber"/>
+        <mat-error *ngIf="getError('roomNumber') !== (null || undefined)">
+        {{
+          (getError("roomNumber") &&
+          getError("roomNumber")["required"]
+            ? "Please enter Stall code"
+            : "") ||
+            (getError("roomNumber") &&
+            getError("roomNumber")["pattern"]
+              ? "Invalid input"
+              : "")||
+            (getError("roomNumber") &&
+            getError("roomNumber")["whitespace"]
+              ? "Invalid input"
+              : "")
+        }}
+        </mat-error>
+      </mat-form-field>
+      <div fxFlex="50%"></div>
+    </div>
+    <div
+      fxFlex="100"
+      fxLayout="column"
+      fxLayout.gt-sm="row"
+      style="gap: 16px">
+      <mat-form-field
+        fxFlex="50%"
+        fxLayout="column"
+        appearance="outline">
+        <mat-label>Adult Capacity</mat-label>
+        <input
+          matInput
+          placeholder="Adult Capacity"
+          formControlName="adultCapacity"/>
+        <mat-error *ngIf="getError('monthlyRate') !== (null || undefined)">
+        {{
+          (getError("adultCapacity") &&
+          getError("adultCapacity")["required"]
+            ? "Please enter monthly rate"
+            : "") ||
+            (getError("adultCapacity") &&
+            getError("adultCapacity")["pattern"]
+              ? "Invalid input"
+              : "") ||
+            (getError("adultCapacity") &&
+            getError("adultCapacity")["notBelowOne"]
+              ? "Must not be less than or equal to zero"
+              : "")
+        }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field
+        fxFlex="50%"
+        fxLayout="column"
+        appearance="outline">
+        <mat-label>Children Capacity</mat-label>
+        <input
+          matInput
+          placeholder="Children Capacity"
+          formControlName="childrenCapacity"/>
+        <mat-error *ngIf="getError('childrenCapacity') !== (null || undefined)">
+        {{
+          (getError("childrenCapacity") &&
+          getError("childrenCapacity")["required"]
+            ? "Please enter weekly rate"
+            : "") ||
+            (getError("childrenCapacity") &&
+            getError("childrenCapacity")["pattern"]
+              ? "Invalid input"
+              : "") ||
+            (getError("childrenCapacity") &&
+            getError("childrenCapacity")["notBelowOne"]
+              ? "Must not be less than or equal to zero"
+              : "")
+        }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div
+      fxFlex="100"
+      fxLayout="column"
+      fxLayout.gt-sm="row"
+      style="gap: 16px">
+    </div>
+    <div
+      fxFlex="100"
+      fxLayout="column"
+      fxLayout.gt-sm="row"
+      style="gap: 16px">
+      <mat-form-field
+        fxFlex="50%"
+        fxLayout="column"
+        appearance="outline">
+        <mat-label>Room Rate</mat-label>
+        <input
+          matInput
+          placeholder="Room Rate"
+          formControlName="roomRate"/>
+        <mat-error *ngIf="getError('roomRate') !== (null || undefined)">
+        {{
+          (getError("roomRate") &&
+          getError("roomRate")["required"]
+            ? "Please room rate"
+            : "") ||
+            (getError("roomRate") &&
+            getError("roomRate")["pattern"]
+              ? "Invalid input"
+              : "") ||
+            (getError("roomRate") &&
+            getError("roomRate")["notBelowOne"]
+              ? "Must not be less than or equal to zero"
+              : "")
+        }}
+        </mat-error>
+      </mat-form-field>
+      <div
+      fxFlex="50%"></div>
+    </div>
+
+  </fieldset>
+  </form>
+  <div fxFlex="100" fxLayout="row wrap" style="row-gap: 16px"
+  [ngClass]="{'readonly' : isReadOnly}">
+    <div
+      fxFlex="100"
+      fxLayout="row"
+      fxLayout.gt-sm="row"
+      style="gap: 16px">
+      <div style="width: 70px; height: 70px; position: relative;display: flex;flex-direction: column;align-items: center;">
+        <div *ngIf="!roomTypeLoaded" style="width: 100%; height: 100%;position: absolute;padding: 20px;box-sizing: border-box;">
+          <mat-spinner style="width: 100%; height: 100%;"></mat-spinner>
+        </div>
+        <img [hidden]="!roomTypeLoaded" style="width: 100%; height: 100%;" [src]="roomType?.image" (load)="roomTypeLoaded = true"/>
+      </div>
+      <mat-form-field
+        class="example-full-width"
+        appearance="outline"
+        style="position: relative!important;width: 100%;"
+        (click)="!isReadOnly && isOptionsRoomTypeLoading = true;initRoomTypeOptions()">
+        <mat-label>Stall classification</mat-label>
+        <input type="text"
+               placeholder="Stall classification"
+               aria-label="Stall classification"
+               matInput
+               [formControl]="roomTypeSearchCtrl"
+               [matAutocomplete]="auto"
+               (focusout)="mapSearchRoomType();"
+               [value]="room?.roomType?.name"
+               #roomTypeSearchInput
+               (input)="isOptionsRoomTypeLoading = true;mapSearchRoomType()">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)" (optionSelected)="form.controls['roomTypeId'].setValue($event.option.value);roomTypeLoaded = false">
+          <mat-option *ngFor="let option of optionsRoomType" [value]="option.id">
+            <div style="display: flex;flex-direction: row;align-items: center;width: 100%;gap: 10px!important;">
+              <img style="width: 70px; height: 70px" [src]="option.image"/>
+              <spa>{{option.name}}</spa>
+            </div>
+          </mat-option>
+        </mat-autocomplete>
+        <mat-error
+          *ngIf="getError('roomTypeId') !== (null || undefined) || roomTypeSearchCtrl.errors !== (null || undefined)"
+        >
+          {{
+            (getError("roomTypeId") && getError("roomTypeId").required
+              ? "Please select valid stall category"
+              : "") ||
+            (roomTypeSearchCtrl.errors && roomTypeSearchCtrl.errors.required
+              ? "Please select valid stall category"
+              : "")
+          }}
+        </mat-error>
+        <mat-spinner *ngIf="isOptionsRoomTypeLoading" style="position: absolute;
+        width: calc(48px / 2);
+        height: calc(48px / 2);
+        display: block;
+        top: calc(48px /3);
+        right: 0;"></mat-spinner>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

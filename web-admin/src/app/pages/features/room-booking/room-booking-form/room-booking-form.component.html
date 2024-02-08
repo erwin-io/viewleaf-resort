@@ -1,0 +1,115 @@
+
+<div class="inner-content">
+  <form
+  fxLayout="row wrap"
+  class="readonly">
+  <fieldset fxFlex="100" fxLayout="row wrap" style="row-gap: 16px">
+    <div
+      fxFlex="100"
+      fxLayout="column"
+      fxLayout.gt-xs="row"
+      style="gap: 16px">
+      <mat-form-field
+        fxFlex="33.33%"
+        fxLayout="column"
+        appearance="outline">
+        <mat-label>Code #</mat-label>
+        <input
+          matInput
+          placeholder="Code #"
+          disabled
+          [ngModel]="roomBooking?.roomBookingCode"/>
+      </mat-form-field>
+      <div
+        fxFlex="33.33%"
+        fxLayout="column"></div>
+      <div
+        fxFlex="33.33%"
+        fxLayout="column"></div>
+    </div>
+    <div
+      fxFlex="100"
+      fxLayout="column"
+      fxLayout.gt-xs="row"
+      style="gap: 16px">
+      <mat-form-field
+        fxFlex="33.33%"
+        fxLayout="column"
+        appearance="outline">
+        <mat-label>Check In</mat-label>
+        <input
+          matInput
+          placeholder="Check In"
+          disabled
+          [value]="roomBooking?.checkInDate | date: 'EEE, dd MMM yyyy'"/>
+      </mat-form-field>
+      <mat-form-field
+        fxFlex="33.33%"
+        fxLayout="column"
+        appearance="outline">
+        <mat-label>Check Out</mat-label>
+        <input
+          matInput
+          placeholder="Check Out"
+          disabled
+          [value]="roomBooking?.checkOutDate | date: 'EEE, dd MMM yyyy'"/>
+      </mat-form-field>
+      <div
+        fxFlex="33.33%"
+        fxLayout="column"></div>
+    </div>
+    <div
+      fxFlex="100"
+      fxLayout="column"
+      fxLayout.gt-xs="row"
+      style="gap: 16px">
+      <mat-form-field
+        fxFlex="33.33%"
+        fxLayout="column"
+        appearance="outline">
+        <mat-label>Room Number</mat-label>
+        <input
+          matInput
+          placeholder="Room Number"
+          disabled
+          [ngModel]="roomBooking?.room?.roomNumber"/>
+      </mat-form-field>
+    </div>
+    <div
+      fxFlex="100"
+      fxLayout="column"
+      fxLayout.gt-xs="row"
+      style="gap: 16px">
+      <mat-form-field
+        fxFlex="100"
+        fxLayout="column"
+        appearance="outline">
+        <mat-label>Room type</mat-label>
+        <input
+          matInput
+          disabled
+          [value]="roomBooking?.room?.roomType?.name"
+          placeholder="Room type"/>
+      </mat-form-field>
+    </div>
+    <div
+      fxFlex="100"
+      fxLayout="column"
+      fxLayout.gt-xs="row"
+      style="gap: 16px">
+      <mat-form-field
+        fxFlex="100"
+        fxLayout="column"
+        disabled
+        appearance="outline">
+        <mat-label>Booked by</mat-label>
+        <input
+          matInput
+          disabled
+          [value]="roomBooking?.bookedByUser?.fullName"
+          placeholder="Booked by"/>
+      </mat-form-field>
+    </div>
+  </fieldset>
+  </form>
+</div>

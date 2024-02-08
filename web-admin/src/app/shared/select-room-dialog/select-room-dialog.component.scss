@@ -1,0 +1,68 @@
+::ng-deep {
+  .select-stall-dialog {
+    padding-left: 16px!important;
+    padding-right: 16px!important;
+    width: 100vw;
+    max-width: 100vw;
+  }
+  .mat-mdc-dialog-content {
+    overflow: hidden;
+    padding-bottom: 0px!important;
+    .select-stall-content-holder {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      display: flex;
+      max-height: inherit;
+      box-sizing: border-box;
+      .select-stall-content {
+        overflow: auto;
+        padding-bottom: 16px;
+        .select-stall-table {
+          .mat-sort-header {
+              height: 30px;
+              width: max-content;
+              flex-direction: row;
+              display: flex;
+              margin: 10px 0!important;
+          }
+          mat-form-field {
+            width: 100%!important;
+          }
+          .hidden {
+            display: none!important;
+          }
+          .mat-column-selected {
+            flex: 0 0 1% !important;
+            width: 1% !important;
+          }
+        }
+      }
+      .select-stall-footer {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        .select-stall-selected {
+          padding: 16px!important;
+          margin-top: 20px!important;
+          display: flex;
+          flex-direction: row;
+          .select-stall-selected-value {
+            margin-left: 20px!important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            h4 {
+              list-style: 1;
+              margin: 0!important;
+            }
+          }
+          .select-stall-selected-cancel {
+            max-width: fit-content!important;
+          }
+        }
+      }
+    }
+  }
+
+}

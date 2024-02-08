@@ -1,0 +1,79 @@
+<mat-toolbar color="#fff" class="mat-elevation-z4">
+  <span id="title">Booking History</span>
+  <span class="toolbar-item-spacer"></span>
+  <button
+    mat-flat-button
+    routerLink="/booking-history/closed-booking/">
+    View all closed booking
+  </button>
+</mat-toolbar>
+<div class="content">
+  <div class="inner-content">
+    <mat-tab-group (selectedTabChange)="onSelectedTabChange($event)" [(selectedIndex)]="tabIndex">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span class="tab-label" matBadge="{{total.pending > 99 ? '99+' : total.pending }}" *ngIf="total.pending > 0; else matLabelPending" matBadgeOverlap="false">Pending</span>
+          <ng-template #matLabelPending>Pending</ng-template>
+        </ng-template>
+        <ng-template matTabContent>
+          <mat-card [ngClass]="{ 'hidden': isLoading }">
+            <mat-card-content fxLayout="column" >
+              <app-data-table
+              [isLoading]="isLoading"
+              [dataSource]="dataSource['pending']"
+              [columnDefs]="appConfig.config.tableColumns.roomBooking"
+              [total]="total['pending']"
+              (pageChange)="pageChange($event, 'pending')"
+              (sortChange)="sortChange($event, 'pending')"
+              (filterChange)="filterChange($event, 'pending')"
+              ></app-data-table>
+            </mat-card-content>
+          </mat-card>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span class="tab-label" matBadge="{{total.confirmed > 99 ? '99+' : total.confirmed }}" *ngIf="total.confirmed > 0; else matLabelLeased" matBadgeOverlap="false">Confirmed</span>
+          <ng-template #matLabelLeased>Confirmed</ng-template>
+        </ng-template>
+        <ng-template matTabContent>
+          <mat-card [ngClass]="{ 'hidden': isLoading }">
+            <mat-card-content fxLayout="column" >
+              <app-data-table
+              [isLoading]="isLoading"
+              [dataSource]="dataSource['confirmed']"
+              [columnDefs]="appConfig.config.tableColumns.roomBooking"
+              [total]="total['confirmed']"
+              (pageChange)="pageChange($event, 'confirmed')"
+              (sortChange)="sortChange($event, 'confirmed')"
+              (filterChange)="filterChange($event, 'confirmed')"
+              ></app-data-table>
+            </mat-card-content>
+          </mat-card>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span class="tab-label" matBadge="{{total['checked-in'] > 99 ? '99+' : total['checked-in'] }}" *ngIf="total['checked-in'] > 0; else matLabelRejected" matBadgeOverlap="false">Checked in</span>
+          <ng-template #matLabelRejected>Checked in</ng-template>
+        </ng-template>
+        <ng-template matTabContent>
+          <mat-card [ngClass]="{ 'hidden': isLoading }">
+            <mat-card-content fxLayout="column" >
+              <app-data-table
+              [isLoading]="isLoading"
+              [dataSource]="dataSource['checked-in']"
+              [columnDefs]="appConfig.config.tableColumns.roomBooking"
+              [total]="total['checked-in']"
+              (pageChange)="pageChange($event, 'checked-in')"
+              (sortChange)="sortChange($event, 'checked-in')"
+              (filterChange)="filterChange($event, 'checked-in')"
+              ></app-data-table>
+            </mat-card-content>
+          </mat-card>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+

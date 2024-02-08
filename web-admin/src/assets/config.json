@@ -1,0 +1,411 @@
+{
+  "appName": "Viewleaf Resort Admin",
+  "reservationConfig": {
+    "maxCancellation": "3",
+    "dayOfWeekNotAvailable": [
+      "Sunday",
+      "Wednesday",
+      "Saturday"
+    ]
+  },
+  "tableColumns": {
+    "users": [
+      {
+        "name": "fullName",
+        "label": "Name",
+        "apiNotation": "fullName",
+        "sticky": true,
+        "type": "string",
+        "style": {
+          "width": "100px",
+          "left": "0px"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Full name"
+        },
+        "urlPropertyName": "url"
+      },
+      {
+        "name": "userProfilePic",
+        "label": "Profile Picture",
+        "type": "image",
+        "style": {
+          "width": "100px"
+        }
+      },
+      {
+        "name": "userName",
+        "label": "Username",
+        "apiNotation": "user.userName",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Username"
+        }
+      },
+      {
+        "name": "mobileNumber",
+        "label": "Mobile number",
+        "apiNotation": "mobileNumber",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Mobile number"
+        }
+      },
+      {
+        "name": "access",
+        "label": "User group",
+        "apiNotation": "access.name",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "User group"
+        }
+      },
+      {
+        "name": "userType",
+        "label": "Type",
+        "apiNotation": "userType",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Type"
+        }
+      }
+    ],
+    "access": [
+      {
+        "name": "accessCode",
+        "label": "User group #",
+        "sticky": true,
+        "apiNotation": "accessCode",
+        "type": "string",
+        "style": {
+          "width": "100px",
+          "left": "0px"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "User group #"
+        },
+        "urlPropertyName": "url"
+      },
+      {
+        "name": "name",
+        "label": "User group name",
+        "apiNotation": "name",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "User group name"
+        }
+      }
+    ],
+    "roomType": [
+      {
+        "sticky": true,
+        "name": "roomTypeCode",
+        "label": "Room Type #",
+        "apiNotation": "roomTypeCode",
+        "type": "string",
+        "style": {
+          "width": "100px",
+          "left": "0px"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Room Type #"
+        },
+        "urlPropertyName": "url"
+      },
+      {
+        "name": "thumbnail",
+        "label": "Thumbnail",
+        "apiNotation": "thumbnailFile.url",
+        "type": "image",
+        "style": {
+          "width": "100px"
+        }
+      },
+      {
+        "name": "name",
+        "label": "Name",
+        "apiNotation": "name",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Name"
+        }
+      }
+    ],
+    "room": [
+      {
+        "sticky": true,
+        "name": "roomNumber",
+        "label": "Room Number",
+        "apiNotation": "roomNumber",
+        "type": "string",
+        "style": {
+          "width": "100px",
+          "left": "0px"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Room Number"
+        },
+        "urlPropertyName": "url"
+      },
+      {
+        "name": "thumbnail",
+        "label": "Thumbnail",
+        "apiNotation": "thumbnailFile.url",
+        "type": "image",
+        "style": {
+          "width": "100px"
+        }
+      },
+      {
+        "name": "adultCapacity",
+        "label": "Adult Capacity",
+        "apiNotation": "adultCapacity",
+        "type": "number",
+        "format": {
+          "type": "currency"
+        },
+        "filterOptions": {
+          "enable": true,
+          "label": "Adult Capacity",
+          "type": "number-range"
+        }
+      },
+      {
+        "name": "childrenCapacity",
+        "label": "Children Capacity",
+        "apiNotation": "childrenCapacity",
+        "type": "number",
+        "format": {
+          "type": "currency"
+        },
+        "filterOptions": {
+          "enable": true,
+          "label": "Children Capacity",
+          "type": "number-range"
+        }
+      },
+      {
+        "name": "roomRate",
+        "label": "Room Rate",
+        "apiNotation": "roomRate",
+        "type": "number",
+        "format": {
+          "type": "currency"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Room Rate",
+          "type": "number-range"
+        }
+      },
+      {
+        "name": "roomType",
+        "label": "Type",
+        "apiNotation": "roomType",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Type"
+        }
+      },
+      {
+        "name": "status",
+        "label": "Status",
+        "apiNotation": "status",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Status"
+        }
+      }
+    ],
+    "roomBooking": [
+      {
+        "sticky": true,
+        "name": "roomBookingCode",
+        "label": "Code #",
+        "apiNotation": "roomBookingCode",
+        "type": "string",
+        "style": {
+          "width": "100px",
+          "left": "0px"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Code #"
+        },
+        "urlPropertyName": "url"
+      },
+      {
+        "name": "room",
+        "label": "Room",
+        "apiNotation": "room.name",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Room"
+        }
+      },
+      {
+        "name": "checkInDate",
+        "label": "Check In date",
+        "apiNotation": "checkInDate",
+        "type": "date",
+        "format": {
+          "type": "date-time",
+          "custom": "MMM dd, yyyy h:mm a"
+        },
+        "filterOptions": {
+          "enable": true,
+          "label": "Check In date",
+          "type": "date-range"
+        }
+      },
+      {
+        "name": "checkOutDate",
+        "label": "Check Out date",
+        "apiNotation": "checkOutDate",
+        "type": "date",
+        "format": {
+          "type": "date-time",
+          "custom": "MMM dd, yyyy h:mm a"
+        },
+        "filterOptions": {
+          "enable": true,
+          "label": "Check Out date",
+          "type": "date-range"
+        }
+      },
+      {
+        "name": "bookedByUser",
+        "label": "Booked by",
+        "apiNotation": "bookedByUser.fullName",
+        "type": "string",
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Booked by"
+        }
+      },
+      {
+        "name": "totalAmount",
+        "label": "Total Amount",
+        "apiNotation": "totalAmount",
+        "type": "number",
+        "format": {
+          "type": "currency"
+        },
+        "filterOptions": {
+          "enable": true,
+          "placeholder": "Total Amount",
+          "type": "number-range"
+        }
+      }
+    ]
+  },
+  "sessionConfig": {
+    "sessionTimeout": "60"
+  },
+  "lookup": {
+    "accessPages": [
+      {
+        "page": "Dashboard",
+        "view": true,
+        "modify": true,
+        "rights": []
+      },
+      {
+        "page": "Room Booking",
+        "view": false,
+        "modify": false,
+        "rights": ["Approval"]
+      },
+      {
+        "page": "Room",
+        "view": false,
+        "modify": false,
+        "rights": []
+      },
+      {
+        "page": "Room Type",
+        "view": false,
+        "modify": false,
+        "rights": []
+      },
+      {
+        "page": "Users",
+        "view": false,
+        "modify": false,
+        "rights": []
+      },
+      {
+        "page": "User group",
+        "view": false,
+        "modify": false,
+        "rights": []
+      }
+    ]
+  },
+  "apiEndPoints": {
+    "auth": {
+      "login": "/auth/login/staff",
+      "registerGuest": "/auth/register/guest"
+    },
+    "user": {
+      "getByCode": "/users/",
+      "createUsers": "/users/",
+      "updateProfile": "/users/updateProfile/",
+      "updateUsers": "/users/",
+      "getUsersByAdvanceSearch": "/users/page/",
+      "resetUserPassword": "/users/",
+      "approveAccessRequest": "/users/"
+    },
+    "access": {
+      "getByAdvanceSearch": "/access/page/",
+      "getByCode": "/access/",
+      "create": "/access/",
+      "update": "/access/",
+      "delete": "/access/"
+    },
+    "roomType": {
+      "getByAdvanceSearch": "/room-type/page/",
+      "getByCode": "/room-type/",
+      "create": "/room-type/",
+      "update": "/room-type/",
+      "delete": "/room-type/"
+    },
+    "room": {
+      "getByAdvanceSearch": "/rooms/page/",
+      "getById": "/rooms/",
+      "getByCode": "/rooms/getByCode/",
+      "create": "/rooms/",
+      "update": "/rooms/",
+      "delete": "/rooms/"
+    },
+    "roomBooking": {
+      "getByAdvanceSearch": "/room-booking/page/",
+      "getByCode": "/room-booking/",
+      "create": "/room-booking/",
+      "update": "/room-booking/",
+      "updateStatus": "/room-booking/updateStatus/"
+    },
+    "notifications": {
+      "getByAdvanceSearch": "/notifications/page/",
+      "getUnreadByUser": "/notifications/getUnreadByUser/",
+      "marAsRead": "/notifications/marAsRead/"
+    },
+    "dashboard": {},
+    "message": {
+      "create": "/message/"
+    }
+  }
+}
