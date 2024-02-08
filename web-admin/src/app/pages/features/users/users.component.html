@@ -12,7 +12,7 @@
     <mat-card [ngClass]="{ 'hidden': isLoading }">
         <mat-card-content fxLayout="column" >
           <app-data-table
-          defaultThumbnail]="../../../../assets/img/person.png"
+          defaultThumbnail="../../../../assets/img/person.png"
           [isLoading]="isLoading"
           [dataSource]="dataSource"
           [columnDefs]="appConfig.config.tableColumns.users"

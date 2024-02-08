@@ -11,8 +11,41 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <!-- reduced for brevity -->
+
+  <!-- inline spinner styles to be able to display spinner right away -->
+  <style type="text/css">
+    body, html {
+      height: 100%;
+    }
+    .app-loading {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .app-loading .logo {
+      display: flex;
+      width: 70px!important;
+      height: 70px!important;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    .logo img { width: 100%; height: 100% };
+  </style>
 </head>
 <body class="mat-typography">
-  <app-root></app-root>
+  <app-root>
+      <!-- loading layout replaced by app after startupp -->
+      <div class="app-loading">
+        <div class="logo">
+          <img src="./assets/img/slash-screen-image.svg" alt="Splash Screen">
+        </div>
+      </div>
+  </app-root>
 </body>
 </html>

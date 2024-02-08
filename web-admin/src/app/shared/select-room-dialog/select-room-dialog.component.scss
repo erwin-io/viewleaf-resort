@@ -1,5 +1,5 @@
 ::ng-deep {
-  .select-stall-dialog {
+  .select-room-dialog {
     padding-left: 16px!important;
     padding-right: 16px!important;
     width: 100vw;
@@ -8,17 +8,17 @@
   .mat-mdc-dialog-content {
     overflow: hidden;
     padding-bottom: 0px!important;
-    .select-stall-content-holder {
+    .select-room-content-holder {
       display: flex;
       flex-direction: column;
       flex-grow: 1;
       display: flex;
       max-height: inherit;
       box-sizing: border-box;
-      .select-stall-content {
+      .select-room-content {
         overflow: auto;
         padding-bottom: 16px;
-        .select-stall-table {
+        .select-room-table {
           .mat-sort-header {
               height: 30px;
               width: max-content;
@@ -38,16 +38,16 @@
           }
         }
       }
-      .select-stall-footer {
+      .select-room-footer {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        .select-stall-selected {
+        .select-room-selected {
           padding: 16px!important;
           margin-top: 20px!important;
           display: flex;
           flex-direction: row;
-          .select-stall-selected-value {
+          .select-room-selected-value {
             margin-left: 20px!important;
             display: flex;
             flex-direction: column;
@@ -57,7 +57,7 @@
               margin: 0!important;
             }
           }
-          .select-stall-selected-cancel {
+          .select-room-selected-cancel {
             max-width: fit-content!important;
           }
         }

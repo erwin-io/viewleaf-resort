@@ -1,9 +1,9 @@
 
-<h4 mat-dialog-title>Search Stall</h4>
+<h4 mat-dialog-title>Search Room</h4>
 <div mat-dialog-content>
-  <div class="select-stall-content-holder">
-    <div fxFlex="100" fxLayout="column" class="select-stall-content">
-      <table class="select-stall-table" mat-table matSort [dataSource]="dataSource">
+  <div class="select-room-content-holder">
+    <div fxFlex="100" fxLayout="column" class="select-room-content">
+      <table class="select-room-table" mat-table matSort [dataSource]="dataSource">
         <!-- Page Column -->
         <ng-container matColumnDef="selected">
           <th mat-header-cell *matHeaderCellDef [ngStyle]="{ 'width': '5%', 'min-width': '0px!important'}"></th>
@@ -60,7 +60,7 @@
           <th mat-header-cell *matHeaderCellDef >
             <span mat-sort-header>Room Type</span>
             <mat-form-field floatLabel="never" appearance="outline" >
-                <input matInput placeholder="Room Type" [(ngModel)]="filterStallClassification" (keyup.enter)="init()" />
+                <input matInput placeholder="Room Type" [(ngModel)]="filterRoomClassification" (keyup.enter)="init()" />
             </mat-form-field>
           </th>
           <td mat-cell *matCellDef="let element">{{ element.roomType}}</td>
@@ -70,14 +70,14 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
     </div>
-    <div class="select-stall-footer">
-      <div fxFlex="100" *ngIf="selected && selected?.roomNumber" class="select-stall-selected">
-        <div fxFlex="100" fxLayout="column" class="select-stall-selected-cancel">
+    <div class="select-room-footer">
+      <div fxFlex="100" *ngIf="selected && selected?.roomNumber" class="select-room-selected">
+        <div fxFlex="100" fxLayout="column" class="select-room-selected-cancel">
           <button mat-icon-button aria-label="Unselect" (click)="selectionChange(selected, false)">
             <mat-icon>close</mat-icon>
           </button>
         </div>
-        <div fxFlex="100" fxLayout="column" class="select-stall-selected-value">
+        <div fxFlex="100" fxLayout="column" class="select-room-selected-value">
           <h4>{{selected?.roomNumber}}</h4>
         </div>
       </div>

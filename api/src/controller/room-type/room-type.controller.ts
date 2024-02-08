@@ -80,7 +80,7 @@ export class RoomTypeController {
     try {
       res.data = await this.roomTypesService.create(roomTypesDto);
       res.success = true;
-      res.message = `Stall Classifications ${SAVING_SUCCESS}`;
+      res.message = `Room Type ${SAVING_SUCCESS}`;
       return res;
     } catch (e) {
       res.success = false;
@@ -99,7 +99,7 @@ export class RoomTypeController {
     try {
       res.data = await this.roomTypesService.update(roomTypesCode, dto);
       res.success = true;
-      res.message = `Stall Classifications ${UPDATE_SUCCESS}`;
+      res.message = `Room Type ${UPDATE_SUCCESS}`;
       return res;
     } catch (e) {
       res.success = false;
@@ -115,7 +115,7 @@ export class RoomTypeController {
     try {
       res.data = await this.roomTypesService.delete(roomTypesCode);
       res.success = true;
-      res.message = `Stall Classifications ${DELETE_SUCCESS}`;
+      res.message = `Room Type ${DELETE_SUCCESS}`;
       return res;
     } catch (e) {
       res.success = false;

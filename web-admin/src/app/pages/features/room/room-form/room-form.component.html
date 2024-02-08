@@ -41,7 +41,7 @@
         {{
           (getError("roomNumber") &&
           getError("roomNumber")["required"]
-            ? "Please enter Stall code"
+            ? "Please enter room number"
             : "") ||
             (getError("roomNumber") &&
             getError("roomNumber")["pattern"]
@@ -176,10 +176,10 @@
         appearance="outline"
         style="position: relative!important;width: 100%;"
         (click)="!isReadOnly && isOptionsRoomTypeLoading = true;initRoomTypeOptions()">
-        <mat-label>Stall classification</mat-label>
+        <mat-label>Room Type</mat-label>
         <input type="text"
-               placeholder="Stall classification"
-               aria-label="Stall classification"
+               placeholder="Room Type"
+               aria-label="Room Type"
                matInput
                [formControl]="roomTypeSearchCtrl"
                [matAutocomplete]="auto"
@@ -200,10 +200,10 @@
         >
           {{
             (getError("roomTypeId") && getError("roomTypeId").required
-              ? "Please select valid stall category"
+              ? "Please select valid room type"
               : "") ||
             (roomTypeSearchCtrl.errors && roomTypeSearchCtrl.errors.required
-              ? "Please select valid stall category"
+              ? "Please select valid room type"
               : "")
           }}
         </mat-error>

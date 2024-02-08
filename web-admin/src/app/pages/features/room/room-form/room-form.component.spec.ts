@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StallFormComponent } from './room-form.component';
+import { RoomFormComponent } from './room-form.component';
 
-describe('StallFormComponent', () => {
-  let component: StallFormComponent;
-  let fixture: ComponentFixture<StallFormComponent>;
+describe('RoomFormComponent', () => {
+  let component: RoomFormComponent;
+  let fixture: ComponentFixture<RoomFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StallFormComponent ]
+      declarations: [ RoomFormComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(StallFormComponent);
+    fixture = TestBed.createComponent(RoomFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

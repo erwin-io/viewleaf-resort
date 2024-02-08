@@ -68,7 +68,7 @@ let RoomTypeController = class RoomTypeController {
         try {
             res.data = await this.roomTypesService.create(roomTypesDto);
             res.success = true;
-            res.message = `Stall Classifications ${api_response_constant_1.SAVING_SUCCESS}`;
+            res.message = `Room Type ${api_response_constant_1.SAVING_SUCCESS}`;
             return res;
         }
         catch (e) {
@@ -82,7 +82,7 @@ let RoomTypeController = class RoomTypeController {
         try {
             res.data = await this.roomTypesService.update(roomTypesCode, dto);
             res.success = true;
-            res.message = `Stall Classifications ${api_response_constant_1.UPDATE_SUCCESS}`;
+            res.message = `Room Type ${api_response_constant_1.UPDATE_SUCCESS}`;
             return res;
         }
         catch (e) {
@@ -96,7 +96,7 @@ let RoomTypeController = class RoomTypeController {
         try {
             res.data = await this.roomTypesService.delete(roomTypesCode);
             res.success = true;
-            res.message = `Stall Classifications ${api_response_constant_1.DELETE_SUCCESS}`;
+            res.message = `Room Type ${api_response_constant_1.DELETE_SUCCESS}`;
             return res;
         }
         catch (e) {
